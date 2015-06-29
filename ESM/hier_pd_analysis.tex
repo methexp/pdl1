@@ -1,0 +1,244 @@
+\documentclass[american,floatsintext,doc]{apa6}
+
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+    \usepackage{xltxtra,xunicode}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+  \newcommand{\euro}{€}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{\usepackage{microtype}}{}
+
+% Table formatting
+\usepackage{longtable,booktabs}
+\usepackage[counterclockwise]{rotating}   % Landscape page setup for large tables
+\usepackage{multirow}		% Table styling
+\usepackage{tabularx}		% Control Column width
+\usepackage[flushleft]{threeparttable}	% Allows for three part tables with a specified notes section
+\usepackage{threeparttablex}            % Lets threeparttable work with longtable
+\usepackage{longtable}              % Allows tables to break across pages
+
+\ifxetex
+  \usepackage[setpagesize=false, % page size defined by xetex
+              unicode=false, % unicode breaks when used with xetex
+              xetex]{hyperref}
+\else
+  \usepackage[unicode=true]{hyperref}
+\fi
+\hypersetup{breaklinks=true,
+            pdfauthor={},
+            pdftitle={Supplementary materials for the journal article entitled Distorted estimates of implicit and explicit learning in applications of the process-dissociation procedure to the SRT task},
+            colorlinks=true,
+            citecolor=blue,
+            urlcolor=blue,
+            linkcolor=black,
+            pdfborder={0 0 0}}
+\urlstyle{same}  % don't use monospace font for urls
+
+\setlength{\parindent}{0pt}
+%\setlength{\parskip}{0pt plus 0pt minus 0pt}
+
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+
+\setcounter{secnumdepth}{0}
+\ifxetex
+  \usepackage{polyglossia}
+  \setmainlanguage{}
+\else
+  \usepackage[american]{babel}
+\fi
+
+% Manuscript styling
+\captionsetup{font=singlespacing,justification=justified}
+\usepackage{csquotes}
+
+ % Line numbering
+  \usepackage{lineno}
+  \linenumbers
+
+
+\usepackage{tikz} % Variable definition to generate author note
+
+% Essential manuscript parts
+  \title{Supplementary materials for the journal article entitled
+\enquote{Distorted estimates of implicit and explicit learning in
+applications of the process-dissociation procedure to the SRT task}}
+
+  \shorttitle{Hierarchical PD}
+
+
+  \author{
+          Christoph Stahl,
+          Marius Barth,
+          \& Hilde Haider  }
+
+  \def\affdep{{"", "", ""}}%
+  \def\affcity{{"", "", ""}}%
+
+  \affiliation{
+    \vspace{0.5cm}
+          \textsuperscript{} University of Cologne  }
+
+
+  \def\affinst{{"init", "University of Cologne"}}%
+  \def\affstate{{"init", ""}}%
+  \def\affcntry{{"init", ""}}%
+
+  \note{
+    \vspace{1cm}
+    Author note
+
+    \raggedright
+    \setlength{\parindent}{36pt}
+
+    \newcounter{author}
+
+%     %     %       %     ;
+%     %       %     ;
+%     %       %     .
+%     
+    This work was funded by Deutsche Forschungsgemeinschaft grants
+    STA-1269/1-1 and HA-5447/8-1.
+
+                                            }
+
+  
+  \usepackage{lscape}
+
+\begin{document}
+
+\maketitle
+
+
+
+We analysed our data using a modified version of Rouder, Lu, Morey, Sun,
+\& Speckman (2008)'s three-level hierarchical process-dissociation
+model.
+
+The first level is the process-dissociation model:
+
+\[ I_{ijk} = C_{ijk} + (1-C_{ijk}) A_{ijk}\]
+
+and
+
+\[ E_{ijk} = (1-C_{ijk}) A_{ijk}\]
+
+where \(i\) and \(j\) index participants and items, and \(k\) indexes
+the experimental condition. The parameters \(A\) and \(C\) represent
+probabilities that range between zero and one; they are transformed via
+a probit link to the reals, where \(a\) and \(c\) denote the transformed
+parameters:
+
+\(A_{ijk} = \Phi(a_{ijk})\) and \(C_{ijk} = \Phi(c_{ijk})\)
+
+The second level is a main effects models on transformed parameters
+\(a\) and \(c\):
+
+\[ c_{ijk} = \alpha_i^{(c)} + \beta_j^{(c)} + \mu_k^{(c)}\]
+
+and
+
+\[ a_{ijk} = \alpha_i^{(a)} + \beta_j^{(a)} + \mu_k^{(a)}\]
+
+where \(\alpha\) denotes participant effects, \(\beta\) denotes item
+effects, and \(\mu\) denotes condition effects that lead to conscious or
+unconscious contributions to task performance.
+
+Participant and item effects are modeled as draws from bivariate normals
+whose covariance matrices were estimated from the data:
+
+\(\left({\alpha_i^{(c)}}\over{\alpha_i^{(a)}} \right) \thicksim N_2(0, \sum_{\alpha}), i=1, \dotsb, I.\)
+
+and
+
+\(\left({\beta_i^{(c)}}\over{\beta_i^{(a)}} \right) \thicksim N_2(0, \sum_{\beta}), j=1, \dotsb, J.\)
+
+This model was estimated within a Bayesian modeling framework using MCMC
+sampling. For further detail, refer to Rouder et al. (2008).
+
+\section{Results}\label{results}
+
+For each group, we sampled three chains of 50,000 iterations, discarding
+the first 20,000 as burn-in. Mixing was monitored by \(\hat{R}\) which
+was below 1.2. Table 1 shows estimates of the posterior distribution of
+the grand-mean parameters \(\mu_k\) of the model. Table 2 shows the
+estimates equivalent to \(C\) and \(A\) from traditional analyses. As
+can be seen, the results corroborated the findings obtained with the
+traditional analyses reported above (i.e., \(C>0\), \(A>.2\), and the
+ordering of \(A\) estimates across conditions).
+
+\begin{landscape}
+
+\begin{table}[tbp]
+\centering
+\caption{Parameter estimates from the hierarchical process-dissociation model. Parameters $\mu_k^{(c)}$ and $\mu_k^{(a)}$ refer to estimates of the grand-mean}
+\begin{center}
+\begin{threeparttable}
+\begin{tabular}{llllllllll}
+\toprule
+\multicolumn{2}{l}{} & \multicolumn{4}{c}{Full dataset} & \multicolumn{4}{c}{Reversals excluded}\\
+\multicolumn{2}{l}{} & \multicolumn{2}{c}{$\mu_k^{(a)}$} & \multicolumn{2}{c}{$\mu_k^{(c)}$} & \multicolumn{2}{c}{$\mu_k^{(a)}$} & \multicolumn{2}{c}{$\mu_k^{(c)}$}\\
+\midrule
+No-learning & Free & -0.82 & -0.96, -0.67 & -6.11 & [-8.61, -4.18] & -0.75 & -0.90, -0.61 & -8.58 & -12.95, -5.51\\
+No-learning & Cued & -0.82 & -1.02, -0.62 & -5.13 & [-7.38, -3.44] & -0.74 & -0.94, -0.55 & -5.88 & -7.97, -4.11\\
+Permuted & Free & -0.71 & -0.87, -0.55 & -6.30 & [-9.92, -3.70] & -0.64 & -0.79, -0.48 & -7.48 & -10.98, -4.61\\
+Permuted & Cued & -0.88 & -1.04, -0.71 & -6.62 & [-10.59, -3.62] & -0.77 & -0.94, -0.61 & -7.14 & -9.56, -4.64\\
+Random & Free & -0.88 & -1.04, -0.73 & -6.40 & [-12.02, -3.66] & -0.78 & -0.94, -0.62 & -6.88 & -11.43, -3.61\\
+Random & Cued & -0.78 & -0.95, -0.61 & -4.06 & [-5.79, -2.69] & -0.68 & -0.85, -0.52 & -4.39 & -6.12, -2.86\\
+\bottomrule
+\end{tabular}
+\tablenotes{\textit{Note.} 95\% credible intervals are in parentheses.}
+\end{threeparttable}
+\end{center}
+\end{table}
+
+\end{landscape}
+
+\clearpage
+
+\begin{table}[tbp]
+\centering
+\caption{Parameter estimates from the hierarchical PD model. Parameters $A$ and $C$ denote the Bayesian equivalent to parameter estimates obtained from classical analyses}
+\begin{center}
+\begin{threeparttable}
+\begin{tabular}{llllllllll}
+\toprule
+\multicolumn{2}{l}{} & \multicolumn{4}{c}{Full dataset} & \multicolumn{4}{c}{Reversals excluded}\\
+\multicolumn{2}{l}{} & \multicolumn{2}{c}{$A$} & \multicolumn{2}{c}{$C$} & \multicolumn{2}{c}{$A$} & \multicolumn{2}{c}{$C$}\\
+\midrule
+No-learning & Free & .21 & [.21, .22] & .03 & [.03, .04] & .23 & [.22, .24] & .03 & [.03, .04]\\
+No-learning & Cued & .23 & [.22, .24] & .04 & [.03, .05] & .26 & [.24, .27] & .04 & [.03, .05]\\
+Permuted & Free & .25 & [.23, .26] & .03 & [.03, .04] & .27 & [.26, .28] & .03 & [.02, .03]\\
+Permuted & Cued & .20 & [.19, .21] & .04 & [.03, .05] & .23 & [.22, .24] & .04 & [.03, .04]\\
+Random & Free & .20 & [.19, .21] & .02 & [.02, .03] & .22 & [.21, .23] & .04 & [.03, .04]\\
+Random & Cued & .22 & [.21, .23] & .03 & [.02, .03] & .25 & [.24, .26] & .03 & [.02, .04]\\
+\bottomrule
+\end{tabular}
+\end{threeparttable}
+\tablenotes{\textit{Note.} 95\% credible intervals are in parentheses.}
+\end{center}
+\end{table}
+
+\section*{References}\label{references}
+\addcontentsline{toc}{section}{References}
+
+Rouder, J. N., Lu, J., Morey, R. D., Sun, D., \& Speckman, P. L. (2008).
+A hierarchical process-dissociation model. \emph{Journal of Experimental
+Psychology: General}, \emph{137}(2), 370--389.
+doi:\href{http://dx.doi.org/10.1037/0096-3445.137.2.370}{10.1037/0096-3445.137.2.370}
+
+
+
+\end{document}
