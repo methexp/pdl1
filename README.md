@@ -1,7 +1,7 @@
 This repository contains raw data as well as supplemental material for the manuscript "Distorted estimates of implicit and explicit learning in applications of the process-dissociation procedure to the SRT task" by Christoph Stahl, Marius Barth, and Hilde Haider.
 
-- **Raw data** for both the acquisition and generation phases are available in the folder "ESM".
-- **Hierarchical analyses**: The file "hierarchical.pdf" shows results of a hierarchical process-dissociation model.
+- **Raw data** for both the acquisition and generation tasks are available as CSV files in the folder "ESM".
+- **Hierarchical analyses**: The folder also contains the file "hierarchical.pdf" that shows results of a hierarchical process-dissociation model.
 
 ## Abstract
 
