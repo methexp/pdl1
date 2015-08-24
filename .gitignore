@@ -11,3 +11,13 @@
 # produced vignettes
 vignettes/*.html
 vignettes/*.pdf
+.Rproj.user
+
+# temporary files that are produced from within the scripts
+*.tmp
+*~
+.RData
+.rdata
+
+# RStudio project files
+*.Rproj
